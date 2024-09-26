@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Fira Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    background-color:floralwhite;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    width: fit-content;
+    color: black;
+}
