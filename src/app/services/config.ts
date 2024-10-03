@@ -13,9 +13,7 @@ export class Config{
         const self = this;
         new Promise((resolve, reject) => {
             this.http
-                .get('config/api-config.json', {
-                    headers: new HttpHeaders().set('Skip-Auth', 'True').set('Access-Control-Allow-Origin', '*'),
-                })
+                .get('config/api-config.json')
                 .pipe(
                     catchError((error: HttpErrorResponse) => {
                         reject(error);

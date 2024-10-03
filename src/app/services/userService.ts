@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { Config } from "./config";
 import { User } from "../model/user";
 import { map } from 'rxjs/operators';
-import { HttpUtils } from "./http.utils";
 import { Observable } from "rxjs";
 
 @Injectable({providedIn: 'root'})

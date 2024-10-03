@@ -1,3 +1,5 @@
 {
-    "API_URL": "https://localhost:6300"
+    "API_URL": "https://localhost:6300",
+    "BGG_XML_API_URL": "/xmlapi",
+    "BGG_JSON_API_URL": "https://bgg-json.azurewebsites.net"
 }
