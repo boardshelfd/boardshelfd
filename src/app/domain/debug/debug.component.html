@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div>
+  <h3>debug:</h3>
+
+  @for (user of users; track user.name){
+    <p>{{user.name}}</p>
+  }
+  
+  <button (click)="fetchUsers()">Fetch all users</button>
+
+  <p>{{boardGame.name}}</p>
+
+  <button (click)="getABoardGame()">Get a board game</button>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+  <p>Boardgame cell:</p>
+  
+  <app-boardgame-cell [boardgame]="boardGame2"></app-boardgame-cell>
+</div>

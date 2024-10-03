@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, ApplicationConfig, ModuleWithProviders, NgModule, provideZoneChangeDetection } from "@angular/core";
+import { APP_INITIALIZER, NgModule, provideZoneChangeDetection } from "@angular/core";
 import { Config } from "./services/config";
 import { provideRouter, RouterOutlet } from '@angular/router';
 import { AppComponent } from "./app.component";
