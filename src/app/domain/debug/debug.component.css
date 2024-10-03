@@ -1,24 +1,7 @@
-/*
- * Navigation css
- */
- .navigator {
+/* should be in a component next */
+
+.hot-games-list{
     display: flex;
-    align-items: center;
-}
-/*
- * Title css
- */
-.title {
-    display: flex;
-    align-items: center;
-    margin: 1rem;
-}
-.title h1 {
-    margin: 0;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-.title img {
-    width: 2rem;
-    height: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }

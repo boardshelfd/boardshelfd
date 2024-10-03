@@ -5,24 +5,42 @@ import { BoardGameService } from '../../services/boardGameService';
 import { BoardGame } from '../../model/boardGame';
 import { NavBarComponent } from '../components/navbar/navbar.component';
 import { BoardGameCellComponent } from '../components/boardgame-cell/boardgame-cell.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-debug',
   standalone: true,
   imports: [
     NavBarComponent,
-    BoardGameCellComponent
+    BoardGameCellComponent,
+    NgIf, NgFor
   ],
   templateUrl: './debug.component.html',
+  styleUrl: './debug.component.css',
 })
 export class DebugComponent implements OnInit {
   public users: User[] = [];
-  public boardGame: BoardGame = new BoardGame(-1, "DEBUG-boardgame", "description")
-  public boardGame2: BoardGame = new BoardGame(-1, "DEBUG-boardgame", "description", "https://cf.geekdo-images.com/DahMIPzUpexvhUPAG3dGbA__thumb/img/uzogBNlLw3GBuGa1T6_8oQbADnY=/fit-in/200x150/filters:strip_icc()/pic8303209.jpg")
+  public boardGame: BoardGame = new BoardGame(-1, "No game loaded...")
+
+  public hotGames?: BoardGame[];
 
   constructor(private userService: UserService, private boardGameService: BoardGameService){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    try {
+      this.boardGameService.getHotBoardGame().subscribe({
+          next: (b: BoardGame[]) => {
+              this.hotGames = b;
+              console.log(this.hotGames)
+          },
+          error: e => {
+              this.hotGames = [];
+          }
+      });
+    } catch (e) {
+        console.error(e);
+    }
+  }
 
   public getABoardGame():void{
     try {

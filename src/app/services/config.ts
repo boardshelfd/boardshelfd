@@ -11,7 +11,7 @@ export class Config{
 
     load(){
         const self = this;
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             this.http
                 .get('config/api-config.json')
                 .pipe(

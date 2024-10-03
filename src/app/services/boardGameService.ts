@@ -10,11 +10,11 @@ export class BoardGameService {
     constructor(public http: HttpClient, private config: Config) {}
 
     private getBGGApiUrl(): string {
-        return this.config.get('BGG_JSON_API_URL') + '/thing';
+        return this.config.get('BGG_JSON_API_URL');
     }
 
     public getBoardGameById(id: number): Observable<BoardGame> {
-        const url = `${this.getBGGApiUrl()}/${id}`;
+        const url = `${this.getBGGApiUrl()}/thing/${id}`;
         return this.http
             .get<BoardGame>(url)
             .pipe(
@@ -23,6 +23,20 @@ export class BoardGameService {
                         return BoardGame.fromJson(jsonResponse)
                     }
                     return new BoardGame();
+                }),
+            );
+    }
+
+    public getHotBoardGame(): Observable<BoardGame[]> {
+        const url = `${this.getBGGApiUrl()}/hot`;
+        return this.http
+            .get<BoardGame[]>(url)
+            .pipe(
+                map(jsonResponse => {
+                    if (jsonResponse) {
+                        return jsonResponse.map((json: any) => BoardGame.fromJson(json));
+                    }
+                    return [];
                 }),
             );
     }

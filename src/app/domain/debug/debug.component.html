@@ -11,7 +11,7 @@
 
   <p>{{boardGame.name}}</p>
 
-  <button (click)="getABoardGame()">Get a board game</button>
+  <button (click)="getABoardGame()">Get Vabanque game</button>
 </div>
 
 <br>
@@ -22,6 +22,9 @@
 
 <div>
   <p>Boardgame cell:</p>
-  
-  <app-boardgame-cell [boardgame]="boardGame2"></app-boardgame-cell>
+  <div class="hot-games-list" *ngIf="hotGames">
+    <div *ngFor="let bg of hotGames; index as i; first as isFirst">
+      <app-boardgame-cell [boardgame]="bg"></app-boardgame-cell>
+    </div>
+  </div>
 </div>

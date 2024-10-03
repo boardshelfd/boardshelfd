@@ -21,7 +21,7 @@ export class BoardGame {
         boardGame.id = json['id'] ?? -1;
         boardGame.name = json['name'] ?? 'Unknown name';
         boardGame.description = json['description'] ?? 'Empty description';
-        boardGame.imageURL = json['image'] ?? '';
+        boardGame.imageURL = json['image'] ?? (json['thumbnail'] ?? '');
         return boardGame;
     }
 }
