@@ -12,6 +12,7 @@ This is the source code of the boardshelfd web app.
 
 - _Node.js_
 - _npm_
+- _[boardshelfd-api](https://github.com/boardshelfd/boardshelfd-api)_
 
 ## Getting started
 
@@ -21,6 +22,17 @@ Install dependencies:
 cd ./src/
 
 npm ci
+```
+
+Configure the local API url:
+
+> src/assets/config/api-config.json
+
+```json
+{
+  "BOARDSHELFD_API_URL": "https://localhost:6300",
+  "...": "..."
+}
 ```
 
 Build sources:
