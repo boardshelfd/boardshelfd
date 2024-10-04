@@ -10,7 +10,7 @@ export class UserService {
     constructor(public http: HttpClient, private config: Config) {}
 
     private getUserApiUrl(): string {
-        return this.config.get('API_URL') + '/user';
+        return this.config.get('BOARDSHELFD_API_URL') + '/user';
     }
 
     public getAllUsers(): Observable<User[]> {

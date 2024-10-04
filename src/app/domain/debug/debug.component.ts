@@ -20,7 +20,8 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class DebugComponent implements OnInit {
   public users: User[] = [];
-  public boardGame: BoardGame = new BoardGame(-1, "No game loaded...")
+  public boardGame: BoardGame = new BoardGame(-1, "No game loaded...");
+  public boardGame2: BoardGame[] = [new BoardGame(-1, "No game loaded...")];
 
   public hotGames?: BoardGame[];
 
@@ -30,11 +31,10 @@ export class DebugComponent implements OnInit {
     try {
       this.boardGameService.getHotBoardGame().subscribe({
           next: (b: BoardGame[]) => {
-              this.hotGames = b;
-              console.log(this.hotGames)
+            this.hotGames = b;
           },
           error: e => {
-              this.hotGames = [];
+            console.error(e);
           }
       });
     } catch (e) {
@@ -42,14 +42,30 @@ export class DebugComponent implements OnInit {
     }
   }
 
-  public getABoardGame():void{
+  public getABoardGameById():void{
     try {
       this.boardGameService.getBoardGameById(2536).subscribe({
           next: (b: BoardGame) => {
               this.boardGame = b;
           },
           error: e => {
-              this.boardGame = this.boardGame;
+              console.error(e);
+          }
+      });
+    } catch (e) {
+        console.error(e);
+    }
+  }
+
+  public getABoardGameByName():void{
+    try {
+      this.boardGameService.getBoardGameByName("catan").subscribe({
+          next: (b: BoardGame[]) => {
+              console.log(b);
+              this.boardGame2 = b;
+          },
+          error: e => {
+              console.error(e);
           }
       });
     } catch (e) {
@@ -64,7 +80,7 @@ export class DebugComponent implements OnInit {
               this.users = u;
           },
           error: e => {
-              this.users = [];
+            console.error(e);
           }
       });
     } catch (e) {

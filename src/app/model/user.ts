@@ -1,21 +1,13 @@
 export class User {
-    id: number;
-    name: string;
-    password: string;
-    email: string;
-    gameIds: number[];
-
     constructor(
-        id?: number,
-        name?: string,
-        password?: string,
-        email?: string,
-        gameIds?: number[]
+        public id?: number,
+        public name?: string,
+        public password?: string,
+        public email?: string,
+        public gameIds?: number[]
     ){
         this.id = id ?? -1;
         this.name = name ?? "username";
-        this.password = password ?? "default";
-        this.email = email ?? "";
         this.gameIds = gameIds ?? [];
     }
 

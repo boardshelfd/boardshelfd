@@ -11,7 +11,13 @@
 
   <p>{{boardGame.name}}</p>
 
-  <button (click)="getABoardGame()">Get Vabanque game</button>
+  <button (click)="getABoardGameById()">Get Vabanque game</button>
+
+  <div *ngFor="let bg of boardGame2; index as i; first as isFirst">
+    <app-boardgame-cell [boardgame]="bg"></app-boardgame-cell>
+  </div>
+
+  <button (click)="getABoardGameByName()">Get Catan game(s)</button>
 </div>
 
 <br>
