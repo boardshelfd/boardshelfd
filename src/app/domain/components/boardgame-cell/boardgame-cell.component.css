@@ -7,28 +7,25 @@
 }
 
 .image-container img{
-    margin: .5rem;
+    width: 12rem;
+    height: 8rem;
+    object-fit:cover;
+    border-radius: .4rem;
 }
 
 .image-container{
-    background-color: rgb(251, 242, 226);
     display: flex;
     width: fit-content;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    border-top-left-radius: .4rem;
-    border-top-right-radius: .4rem;
 }
 
-.title-container h4{
+.title-container h5{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    text-align: center; 
-
-
     margin: .3rem;
     inline-size: 150px;
     overflow-wrap:break-word;
@@ -38,10 +35,8 @@
     display: flex;
     width: fit-content;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
     width: 100%;
     border-bottom-left-radius: .4rem;
     border-bottom-right-radius: .4rem;
-    background-color: rgb(248, 234, 209);
 }

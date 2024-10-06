@@ -4,47 +4,35 @@ import { UserService } from '../../services/userService';
 import { BoardGameService } from '../../services/boardGameService';
 import { BoardGame } from '../../model/boardGame';
 import { NavBarComponent } from '../components/navbar/navbar.component';
+import { BoardGameCellComponent } from '../components/boardgame-cell/boardgame-cell.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NavBarComponent
+    NavBarComponent,
+    BoardGameCellComponent,
+    NgIf, 
+    NgFor,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  public users: User[] = [];
-  public boardGame: BoardGame = new BoardGame(-1, "DEBUG-boardgame")
+
+  public hotGames?: BoardGame[];
 
   constructor(private userService: UserService, private boardGameService: BoardGameService){}
 
-  ngOnInit(): void {}
-
-  public getABoardGame():void{
+  ngOnInit(): void {
     try {
-      this.boardGameService.getBoardGameById(2536).subscribe({
-          next: (b: BoardGame) => {
-              this.boardGame = b;
+      this.boardGameService.getHotBoardGame().subscribe({
+          next: (b: BoardGame[]) => {
+            this.hotGames = b;
           },
           error: e => {
-              this.boardGame = this.boardGame;
-          }
-      });
-    } catch (e) {
-        console.error(e);
-    }
-  }
-
-  public fetchUsers():void{
-    try {
-      this.userService.getAllUsers().subscribe({
-          next: (u: User[]) => {
-              this.users = u;
-          },
-          error: e => {
-              this.users = [];
+            console.error(e);
           }
       });
     } catch (e) {
