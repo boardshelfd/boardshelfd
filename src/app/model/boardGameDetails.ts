@@ -1,4 +1,4 @@
-export class BoardGame {
+export class BoardGameDetails {
     constructor(
         public id?: number,
         public name?: string,
@@ -16,12 +16,22 @@ export class BoardGame {
         public artists?: string[],
     ){}
 
-    public static fromJson(json: any): BoardGame {
-        let boardGame: BoardGame = new BoardGame();
-        boardGame.id = json['id'] ?? -1;
-        boardGame.name = json['name'] ?? 'Unknown name';
-        boardGame.description = json['description'] ?? 'Empty description';
-        boardGame.imageURL = json['thumbnail'] ?? '';
-        return boardGame;
+    public static fromJson(json: any): BoardGameDetails {
+        let boardGameDetails: BoardGameDetails = new BoardGameDetails();
+        boardGameDetails.id = json['gameId'] ?? -1;
+        boardGameDetails.name = json['name'] ?? 'Unknown name';
+        boardGameDetails.description = json['description'] ?? 'Empty description';
+        boardGameDetails.imageURL = json['image'] ?? '';
+        boardGameDetails.thumbnail = json['thumbnail'];
+        boardGameDetails.minPlayers = json['minPlayers'];
+        boardGameDetails.maxPlayers = json['maxPlayers'];
+        boardGameDetails.yearPublished = json['yearPublished'];
+        //boardGameDetails.bggRating = json['bggRating'];
+        //boardGameDetails.averageRating = json['averageRating'];
+        boardGameDetails.rank = json['rank'];
+        boardGameDetails.designers = json['designers'];
+        boardGameDetails.publishers = json['publishers'];
+        boardGameDetails.artists = json['artists'];
+        return boardGameDetails;
     }
 }

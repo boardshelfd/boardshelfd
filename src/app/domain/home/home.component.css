@@ -1,10 +1,9 @@
-.hot-game-container{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    overflow: auto;
+.collection-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-.hot-game-container div{
-    padding: 1rem;
+.collection-item {
+    margin: .3rem;
 }

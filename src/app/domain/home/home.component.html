@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<div class="hot-game-container"  *ngIf="hotGames">
-    <div *ngFor="let bg of hotGames; index as i; first as isFirst">
+<div class="collection-container"  *ngIf="collection">
+    <div class="collection-item" *ngFor="let bg of collection; index as i; first as isFirst">
         <app-boardgame-cell [boardgame]="bg"></app-boardgame-cell>
     </div>
 </div>
