@@ -14,11 +14,11 @@ export class GamesStub {
         return [
             237182, // Root
             275215, // Namiji
-            //414317, // Harmonies
+            414317, // Harmonies
             328479, // Living Forest
             411881, // Gold'n Crash
             311715, // Mini Rogue
-            //293207, // Eila
+            293207, // Eila
             1472, // Les 5 rois
             275044, // Lueur
             68448, // 7 Wonders

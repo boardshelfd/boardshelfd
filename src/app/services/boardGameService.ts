@@ -55,4 +55,18 @@ export class BoardGameService {
                 }),
             );
     }
+
+    public getUserCollection(username: string): Observable<BoardGame[]> {
+        const url = `${this.getBGGApiUrl()}/user-collection/${username}`;
+        return this.http
+            .get<BoardGame[]>(url)
+            .pipe(
+                map(jsonResponse => {
+                    if (jsonResponse) {
+                        return jsonResponse.map((json: any) => BoardGame.fromJson(json));
+                    }
+                    return [];
+                }),
+            );
+    }
 }

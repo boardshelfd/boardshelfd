@@ -1,3 +1,7 @@
+.game-counter {
+    margin: 1rem;
+}
+
 .collection-container {
     display: flex;
     flex-wrap: wrap;

@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../components/navbar/navbar.component';
 import { BoardGameCellComponent } from '../components/boardgame-cell/boardgame-cell.component';
 import { NgFor, NgIf } from '@angular/common';
-import { GamesStub } from '../../stub/stub';
 import { BoardGameDetails } from '../../model/boardGameDetails';
+import { BoardGame } from '../../model/boardGame';
+import { BoardGameService } from '../../services/boardGameService';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +22,21 @@ export class HomeComponent implements OnInit {
 
   public collection?: BoardGameDetails[];
 
-  constructor(private stub: GamesStub){}
+  constructor(private boardGameService: BoardGameService){}
 
   ngOnInit(): void {
-    this.collection = this.stub.myGames;
+    try {
+      this.boardGameService.getUserCollection("AxlR_").subscribe({
+          next: (b: BoardGame[]) => {
+            this.collection = b;
+          },
+          error: e => {
+            console.error(e);
+          }
+      });
+    } catch (e) {
+        console.error(e);
+    }
+    
   }
 }
