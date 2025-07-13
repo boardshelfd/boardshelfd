@@ -10,6 +10,7 @@ import { NavBarComponent } from "./domain/components/navbar/navbar.component";
 import { CommonModule } from "@angular/common";
 import { BoardGameCellComponent } from "./domain/components/boardgame-cell/boardgame-cell.component";
 import { DebugComponent } from "./domain/debug/debug.component";
+import { HotGamesComponent } from "./domain/components/hot-games/hot-games.component";
 
 export function configFactory(config: Config) {
     return () => {
@@ -24,6 +25,7 @@ export function configFactory(config: Config) {
         BrowserModule,
         NavBarComponent,
         BoardGameCellComponent,
+        HotGamesComponent,
         CommonModule,
     ],
     declarations: [ 
