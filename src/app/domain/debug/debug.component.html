@@ -14,7 +14,7 @@
   <button (click)="getABoardGameById()">Get Vabanque game</button>
 
   <div *ngFor="let bg of boardGame2; index as i; first as isFirst">
-    <app-boardgame-cell [boardgame]="bg"></app-boardgame-cell>
+    <boardgame-cell [boardgame]="bg"></boardgame-cell>
   </div>
 
   <button (click)="getABoardGameByName()">Get Catan game(s)</button>
@@ -30,7 +30,15 @@
   <p>Boardgame cell:</p>
   <div class="hot-games-list" *ngIf="hotGames">
     <div *ngFor="let bg of hotGames; index as i; first as isFirst">
-      <app-boardgame-cell [boardgame]="bg"></app-boardgame-cell>
+      <boardgame-cell [boardgame]="bg"></boardgame-cell>
     </div>
   </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<hot-games></hot-games>

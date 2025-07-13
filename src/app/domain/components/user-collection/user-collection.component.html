@@ -1,0 +1,8 @@
+<div>
+    <p class="game-counter">Total owned games : {{collection?.length ?? "loading..."}}</p>
+    <div class="collection-container"  *ngIf="collection">
+        <div class="collection-item" *ngFor="let bg of collection; index as i; first as isFirst">
+            <boardgame-cell [boardgame]="bg"></boardgame-cell>
+        </div>
+    </div>
+</div>

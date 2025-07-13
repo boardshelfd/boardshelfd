@@ -3,18 +3,9 @@ import { User } from '../../model/user';
 import { UserService } from '../../services/userService';
 import { BoardGameService } from '../../services/boardGameService';
 import { BoardGame } from '../../model/boardGame';
-import { NavBarComponent } from '../components/navbar/navbar.component';
-import { BoardGameCellComponent } from '../components/boardgame-cell/boardgame-cell.component';
-import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-debug',
-  standalone: true,
-  imports: [
-    NavBarComponent,
-    BoardGameCellComponent,
-    NgIf, NgFor
-  ],
   templateUrl: './debug.component.html',
   styleUrl: './debug.component.css',
 })

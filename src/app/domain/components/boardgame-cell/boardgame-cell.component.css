@@ -7,8 +7,8 @@
 }
 
 .image-container img{
-    width: 12rem;
-    height: 8rem;
+    width: 10rem;
+    height: 6rem;
     object-fit:cover;
     border-radius: .4rem;
 }

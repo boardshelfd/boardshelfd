@@ -1,8 +1,8 @@
 <div *ngIf="boardgame" class="main-container">
   <div class="image-container">
-    <img [src]="boardgame.thumbnail" alt="boardgame_img">
+    <img [src]="boardgame?.thumbnail" alt="boardgame_img">
   </div>
   <div class="title-container">
-    <h5>{{boardgame.name}}</h5>
+    <h5>{{boardgame?.name ?? 'Unnamed'}}</h5>
   </div>
 </div>
