@@ -1,13 +1,11 @@
-.game-counter {
-    margin: 1rem;
+.home-container {
+    margin-top: 2rem;
 }
 
-.collection-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.collection-item {
-    margin: .3rem;
+.hot-games {
+    margin: 2rem 0 0 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

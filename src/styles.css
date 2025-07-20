@@ -11,3 +11,7 @@ a {
     width: fit-content;
     color: black;
 }
+
+.root-container {
+    margin: 0 15rem;
+}

@@ -1,38 +1,36 @@
-/*
- * Navigation css
- */
- .navigator {
+ .navbar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/*
- * Title css
- */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 15rem;
+}
+
 .title {
     display: flex;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 .title h1 {
     margin: 0;
     margin-left: 1rem;
-    margin-right: 1rem;
 }
 .title img {
     width: 2rem;
     height: 2rem;
 }
 
-/* Actions css */
 .actions {
     display: flex;
     align-items: center;
 }
 .actions a {
-    margin: 0 2rem;
+    margin: 0 0 0 2rem;
     text-decoration: none;
     font-weight: bold;
 }
