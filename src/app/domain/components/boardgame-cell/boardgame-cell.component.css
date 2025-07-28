@@ -1,42 +1,88 @@
-.main-container{
+.main-container {
     display: flex;
-    width: fit-content;
+    width: clamp(140px, 20vw, 180px);
+    height: clamp(150px, 22vw, 170px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.main-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
 }
 
-.image-container img{
-    width: 10rem;
-    height: 6rem;
-    object-fit:cover;
-    border-radius: .4rem;
-}
-
-.image-container{
-    display: flex;
-    width: fit-content;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.image-container img {
     width: 100%;
+    height: clamp(80px, 12vw, 100px);
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
 }
 
-.title-container h5{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: .3rem;
-    inline-size: 150px;
-    overflow-wrap:break-word;
+.main-container:hover .image-container img {
+    transform: scale(1.02);
 }
 
-.title-container{
+.title-container {
     display: flex;
-    width: fit-content;
-    flex-direction: column;
-
     width: 100%;
-    border-bottom-left-radius: .4rem;
-    border-bottom-right-radius: .4rem;
+    flex-direction: column;
+    text-align: center;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.title-container h5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    width: 100%;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        width: clamp(120px, 45vw, 140px);
+        height: clamp(130px, 45vw, 150px);
+        padding: 0.5rem;
+    }
+    
+    .image-container {
+        margin-bottom: 0.5rem;
+    }
+    
+    .image-container img {
+        height: clamp(70px, 25vw, 80px);
+    }
+    
+    .title-container h5 {
+        font-size: 0.8rem;
+    }
 }

@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class="root-container">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="images/logo.png" alt="BoardShelfD Logo" class="logo">
+                <h1>Welcome back</h1>
+                <p>Sign in to your boardshelfd account</p>
+            </div>
+
+            <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        [(ngModel)]="loginData.email"
+                        required 
+                        email
+                        placeholder="Enter your email"
+                        class="form-input"
+                        #email="ngModel">
+                    <div class="error-message" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <span *ngIf="email.errors?.['required']">Email is required</span>
+                        <span *ngIf="email.errors?.['email']">Please enter a valid email</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password"
+                        [(ngModel)]="loginData.password"
+                        required 
+                        minlength="6"
+                        placeholder="Enter your password"
+                        class="form-input"
+                        #password="ngModel">
+                    <div class="error-message" *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <span *ngIf="password.errors?.['required']">Password is required</span>
+                        <span *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</span>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="login-button"
+                    [disabled]="loginForm.invalid || isLoading">
+                    <span *ngIf="!isLoading">Sign In</span>
+                    <span *ngIf="isLoading">Signing in...</span>
+                </button>
+
+                <div class="error-message" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div>
+            </form>
+
+            <div class="login-footer">
+                <p>Don't have an account? <a href="/register">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</div>

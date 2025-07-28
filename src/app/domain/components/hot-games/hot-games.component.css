@@ -1,10 +1,44 @@
-.hot-game-container{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    overflow: auto;
+.hot-game-container {
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
 }
 
-.hot-game-container div{
-    padding: 1rem;
+.hot-game-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.hot-game-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hot-game-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.hot-game-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+.hot-game-container div {
+    padding: clamp(0.5rem, 1.5vw, 1rem);
+    flex-shrink: 0;
+    min-width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .hot-game-container {
+        gap: 0.5rem;
+    }
+    
+    .hot-game-container div {
+        padding: 0.5rem;
+    }
 }
